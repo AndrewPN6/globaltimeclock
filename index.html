@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Time Clock</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> <!--To use awesome fonts for "fa fa-pencil-square-o"-->
+<link rel="stylesheet" href="style.css" /> <!--Link CSS file-->
+  <!--Link css-->
+</head>
+
+
+
+<body>
+  <h1>Global Time Clock</h1>
+
+  <div class="container">
+    <div class="time-info">
+      <div style="display:flex; align-items: baseline; gap:10px"> <!--This is where user will be allowed to change the timezone-->
+        <p id="timezone">Timezone</p>
+        <i id="button" class="fa fa-pencil-square-o" data-micromodal-trigger="modal-1" aria-hidden="true"></i>
+      </div>
+      <p id="time"></p> <!--This is where the time will be displayed-->
+      <p id="date"></p><!--This is where the date will be displayed-->
+    </div>
+  </div>
+
+  <!-- This is where the micromodal dependency is used so that the timezone can be changed-->
+  <div class="micromodal" id="modal-1" aria-hidden="true">
+    <div class="micromodal__overlay" tabindex="-1" >
+      <div class="micromodal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+        <h3> Change Timezones</h3>
+        <div id="myDropdown" class="dropdown-content"><!--This is where the timezones dropdown will be displayed-->
+          <div class="input-row">
+            <div class="input-with-dropdown">
+              <input type="text" placeholder="Search..." id="tz" onkeyup="filterFunction()" required/>
+              <span class="input-caret"><i class="fa fa-caret-down"></i></span>
+
+              <div class="dropdownmenu"></div>
+            </div>
+            <input class='close-button' type="submit" value="Apply" data-micromodal-close /> <!--This is the button to apply the changes. It also closes the micromodal-->
+          </div>
+        </div>
+      </div>
+
+      <script src="dist/bundle.js"></script><!--Link the javascriptfile-->
+      <script>
+        // Timmezone filter function to filer the timezones based on user input
+        function filterFunction() {
+          const input = document.getElementById("tz"); //Get the input element where user will type the timezone
+          const filter = input.value.toUpperCase(); //Get the user input and convert it to uppercase for case-insensitive comparison
+          const div = document.getElementById("myDropdown"); //Get the dropdown div
+          const a = div.getElementsByTagName("a"); //Get all the anchor tags in the dropdown
+          for (let i = 0; i < a.length; i++) { //Loop through all the anchor tags
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) { //If the user input matches the timezone, it will be displayed in the dripdown
+              a[i].style.display = "";
+            } else {
+              a[i].style.display = "none"; //else it will be hidden
+            }
+          }
+        }
+
+      </script>
+</body>
+
+</html>

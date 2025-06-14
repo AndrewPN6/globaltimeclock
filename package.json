@@ -1,0 +1,46 @@
+{
+
+  "name": "globaltimeclock",
+
+  "version": "1.0.0",
+
+  "description": "",
+
+  "main": "index.js",
+
+  "private": true,
+
+  "scripts": {
+
+    "test": "echo \"Error: no test specified\" && exit 1"
+
+  },
+
+  "keywords": [],
+
+  "author": "",
+
+  "license": "ISC",
+
+  "type": "commonjs",
+
+  "devDependencies": {
+
+    "webpack": "^5.99.9",
+
+    "webpack-cli": "^6.0.1"
+
+  },
+
+  "dependencies": {
+
+    "countries-and-timezones": "^3.8.0",
+
+    "dayjs": "^1.11.13",
+
+    "micromodal": "^0.6.1"
+
+  }
+
+}
+

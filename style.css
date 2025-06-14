@@ -1,0 +1,204 @@
+/*General Body*/
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: cursive, "Courier New", monospace;
+  font-size: 12pt;
+}
+
+h1 {
+  font-weight: 1000;
+  margin: 50px;
+  color: black;
+  font-size: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Container where items go*/
+.container {
+  display: flex;
+  background-size: cover;
+  color: black;
+  height: 400px;
+  width: 800px;
+  margin-top: 150px;
+  overflow: hidden;
+  font-size: 14;
+  border: black solid;
+  border-width: thick;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Container for paragraph text in container div */
+.container p {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* CSS for the timezone id */
+#timezone {
+  justify-content: center;
+  margin-left: 400px;
+  margin-top: 100px;
+  font-size: 18pt;
+}
+
+/* CSS for the time and date */
+#time {
+  margin-top: 0px;
+  font-size: 50pt;
+}
+
+#date{
+  font-size:22pt;
+}
+/* CSS fo timezone dropdown */
+#button {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  min-width: 230px;
+  z-index: 1;
+
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  overflow: auto;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #f6f6f6;
+  cursor:pointer;
+}
+
+.dropdownmenu{
+  width: 100%;
+  overflow-y: auto;
+  max-width: 350px;
+  max-height: 400px;
+  position: relative;
+  text-align: center;
+  border: black solid thin;
+  border-top: none;
+  display:block;
+
+}
+
+.show{
+  display:none;
+}
+
+
+/* Container for input and button in a row */
+.input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Container for textbox and its dropdown */
+.input-with-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.input-caret {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: #666;
+  cursor:pointer;
+
+}
+
+.dropdown a:hover {background-color: #fff;}
+
+
+
+/*Micro Modal*/
+.micromodal {
+  display: none;
+}
+
+.micromodal.is-open {
+  display: block;
+}
+
+.micromodal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.micromodal__container {
+  box-sizing: border-box;
+  overflow-y: none;
+  max-width: 700px;
+  max-height: 500px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+
+.micromodal[aria-hidden="false"] .micromodal__overlay {
+  animation: microModalFadeIn 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal[aria-hidden="false"] .micromodal__container {
+  animation: microModalSlideIn 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal .micromodal__container,
+.micromodal .micromodal__overlay {
+  will-change: transform;
+}
+
+@keyframes microModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes microModalSlideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
